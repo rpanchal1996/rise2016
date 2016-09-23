@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="{% static 'lang-logo.png'%}">
+    </a>
+    <h1 style="color: red">INVALID USERNAME OR PASSWORD</h1>
+    
+    <a type="button" class="btn btn-lg btn-default" href=/login><span class="glyphicon glyphicon-flash"></span>Try Login Again</a>
+    
+  </div>
+</div>
+<div class="container">
+  
+<footer class="text-center" style="margin-top: 10px">
+  
+  <p style="color: black;font-size: 20px"> <strong>Under Developement by Rudresh Panchal and Nimit Parekh</strong></p>
+</footer>
+</br>
+</br>
+
+</div>
+{% endblock %}
