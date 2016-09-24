@@ -5,11 +5,13 @@ from django.contrib.auth import authenticate, login, logout
 import pandas as pd
 import json
 from pandas.tools.plotting import scatter_matrix
-#import matplotlib.pyplot as plt
-import numpy as np
 from sklearn import datasets, linear_model
 from twilio.rest import TwilioRestClient 
 from .models import Usermodel
+import requests
+import json
+import numpy as np
+import matplotlib.pyplot as plt
 import os
 os.chdir("/home/ssm/Desktop/avais/rise2016/hello")
 import random
@@ -230,3 +232,85 @@ def rudresh_change(request):
 	stocks_dict["cost2"] = stocks[index2].split(":")[1]
 	stocks_dict["cost3"] = stocks[index3].split(":")[1]
 	return render("dummy3.html",{"stocks_dict" : stocks_dict})
+
+def currency_prediction:
+	gbparr = []
+	usdarr = []
+	chfarr = []
+	nzdarr = []
+	count =[]
+	for date in xrange(1,31):
+		if(date>9):
+			url = 'http://api.fixer.io/2016-08-'+str(date)
+		else:
+			url = 'http://api.fixer.io/2016-08-0'+str(date)
+		
+		r = requests.get(url)
+		r = r.json()
+		
+		gbparr.append(r['rates']['GBP'])
+		usdarr.append(r['rates']['USD'])
+		chfarr.append(r['rates']['CHF'])
+		nzdarr.append(r['rates']['NZD']/1.5)
+		count.append(date)
+
+	for date in xrange(1,20):
+		if(date>9):
+			url = 'http://api.fixer.io/2016-09-'+str(date)
+		else:
+			url = 'http://api.fixer.io/2016-09-0'+str(date)
+		
+		r = requests.get(url)
+		r = r.json()
+		gbparr.append(r['rates']['GBP'])
+		usdarr.append(r['rates']['USD'])
+		chfarr.append(r['rates']['CHF'])
+		nzdarr.append(r['rates']['NZD']/1.5)
+		count.append(date+30)
+
+
+	#m_sqr_usd =np.sum(((y-np.average(y))**2))
+	#print(m_sqr_usd)
+	usdy = np.array(usdarr)
+	usdx = np.array(count)
+	nzdy = np.array(nzdarr)
+	nzdx = np.array(count)
+	gbpy = np.array(gbparr)
+	gbpx = np.array(count)
+	chfy = np.array(chfarr)
+	chfx = np.array(count)
+	print(np.sum(((nzdy-np.average(nzdy))**2)))
+	print(np.sum(((usdy-np.average(usdy))**2)))
+	print(np.sum(((gbpy-np.average(gbpy))**2)))
+	print(np.sum(((chfy-np.average(chfy))**2)))
+
+	usdz = np.polyfit(usdx,usdy,4)
+	nzdz = np.polyfit(nzdx,nzdy,4)
+	gbpz = np.polyfit(gbpx,gbpy,4)
+	chfz = np.polyfit(chfx,chfy,4)
+
+	usdp = np.poly1d(usdz)
+	nzdp = np.poly1d(nzdz)
+	gbpp = np.poly1d(gbpz)
+	chfp = np.poly1d(chfz)
+
+	plt.plot(usdx,usdy,usdp(usdx),'-')
+	plt.show()
+	usddat = {}
+	usdpred = {}
+	nzddat = {}
+	nzdpred = {}
+	gbpdat = {}
+	gbppred = {}
+	chfdat = {}
+	chfpred = {}
+
+	for i in xrange(1,50):
+		usddat[str(i)] = usdarr[i-1]
+		nzddat[str(i)] = nzdarr[i-1]
+		gbpdat[str(i)] = gbparr[i-1]
+		chfdat[str(i)] = chfarr[i-1]
+		usdpred[str(i)] = usdp(i)
+		gbppred[str(i)] = gbpp(i)
+		nzdpred[str(i)] = nzdp(i)
+		chfpred[str(i)] = chfp(i)
