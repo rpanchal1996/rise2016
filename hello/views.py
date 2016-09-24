@@ -12,6 +12,7 @@ from twilio.rest import TwilioRestClient
 from .models import Usermodel
 import os
 os.chdir("/home/ssm/Desktop/avais/rise2016/hello")
+import random
 # Create your views here.
 def index(request):
     # return HttpResponse('Hello from Python!')
@@ -21,7 +22,7 @@ def after_login(request):
 	f = open("data/account.json","r")
 	for line in f:
 		final_obj = line
-	return render(request, "dummy.html", {"obj" : final_obj})
+	return render(request, "home.html", {"obj" : final_obj})
 
 def analyse(fromAccount, toAccount, amount, balanceFrom, balanceTo):
 	balanceFrom -= amount
@@ -193,3 +194,39 @@ def sms(request):
 	)
 
 	return render(request,'home.html',{'username':''})
+
+def rudresh_change(request):
+	stocks = [
+		"Novavax, Inc.:$ 2.26",
+		"Apple Inc.:$ 112.71",
+		"Sirius XM Holdings Inc.:$ 4.205",
+		"Yahoo! Inc.:$ 42.80",
+		"Facebook, Inc.:$ 127.96",
+		"Endo International plc:$ 23.39",
+		"PowerShares QQQ Trust, Series 1:$ 118.33",
+		"GoPro, Inc.:$ 17.15",
+		"Microsoft Corporation:$ 57.43",
+		"Frontier Communications Corporation:$ 4.33",
+		"Cisco Systems, Inc.:$ 31.34",
+		"VelocityShares Daily Inverse VIX Short Term ETN:$ 38.12",
+		"Micron Technology, Inc.:$ 17.48",
+		"Intel Corporation:$ 37.19",
+		"Applied Materials, Inc.:$ 29.66"
+	]
+	index1 = random.randint(0,14)
+	while True:
+		index2 = random.randint(0,14)
+		if index1 != index2:
+			break
+	while True:
+		index3 = random.randint(0,14)
+		if index3 != index2 and index3 != index1:
+			break
+	stocks_dict = {}
+	stocks_dict["stock1"] = stocks[index1].split(":")[0]
+	stocks_dict["stock2"] = stocks[index2].split(":")[0]
+	stocks_dict["stock3"] = stocks[index3].split(":")[0]
+	stocks_dict["cost1"] = stocks[index1].split(":")[1]
+	stocks_dict["cost2"] = stocks[index2].split(":")[1]
+	stocks_dict["cost3"] = stocks[index3].split(":")[1]
+	return render("dummy3.html",{"stocks_dict" : stocks_dict})
