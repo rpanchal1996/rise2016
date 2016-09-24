@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # python-getting-started
 
 A barebones Python app, which can easily be deployed to Heroku.
@@ -42,3 +43,7 @@ or
 For more information about using Python on Heroku, see these Dev Center articles:
 
 - [Python on Heroku](https://devcenter.heroku.com/categories/python)
+=======
+# code-helper
+Code helper web-app, a part of WT Mini-Project
+>>>>>>> 9ad295bba0b25829cd7ffdcae4e2dfcf5ee2346d

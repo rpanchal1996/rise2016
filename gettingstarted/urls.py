@@ -11,10 +11,8 @@ import hello.views
 
 urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
-    url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^registercoder', hello.views.registerCoder, name='registercoder'),
-    url(r'^registerhelper', hello.views.registerHelper, name='registerhelper'),
+    url(r'^register', hello.views.register, name='register'),
     url(r'^login', hello.views.user_login, name='user_login'),
     url(r'^home', hello.views.post_login, name='post_login'),
     url(r'^invalidlogin', hello.views.invalidLogin, name='invalidLogin'),
