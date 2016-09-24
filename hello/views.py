@@ -17,8 +17,17 @@ def index(request):
     # return HttpResponse('Hello from Python!')
     return render(request, 'index.html')
 
-
-
+def after_login(request):
+	f = open("data/account.json","r")
+	for line in f:
+		final_obj = line
+	return render(request, "dummy.html", {"obj" : final_obj})
+	
+def analyse(fromAccount, toAccount, amount, balanceFrom, balanceTo):
+	balanceFrom -= amount
+	balanceTo += amount
+	return render(request, "dummy2.html", {"fromAccount" : fromAccount, "toAccount" : toAccount,
+			"balanceFrom" : balanceFrom, "balanceTo" : balanceTo})
 
 def register(request):
 	if(request.method == 'POST'):
