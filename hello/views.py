@@ -8,10 +8,10 @@ from pandas.tools.plotting import scatter_matrix
 #import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import datasets, linear_model
-
+from twilio.rest import TwilioRestClient 
 from .models import Usermodel
 import os
-os.chdir("/home/avais/Desktop/rise/rise2016/hello")
+os.chdir("/home/ssm/Desktop/avais/rise2016/hello")
 # Create your views here.
 def index(request):
     # return HttpResponse('Hello from Python!')
@@ -26,6 +26,7 @@ def after_login(request):
 def analyse(fromAccount, toAccount, amount, balanceFrom, balanceTo):
 	balanceFrom -= amount
 	balanceTo += amount
+	return HttpResponse("Chal gaya")
 	return render(request, "dummy2.html", {"fromAccount" : fromAccount, "toAccount" : toAccount,
 			"balanceFrom" : balanceFrom, "balanceTo" : balanceTo})
 
@@ -174,3 +175,21 @@ def balance_options(request):
 			dest_acc = 4
 		analyse(best_account_val,dest_acc,to_transfer,678998,382176)
 	return render(request,'test.html',{'money':to_transfer,'from':best_account_val,'to':dest_acc})
+
+def sms(request):
+	data = "Hello from Barclays."
+	#+"We have set up an automated transfer to save funds, subject to your approval. Kindly verify the transaction."
+ 
+	# put your own credentials here 
+	ACCOUNT_SID = "AC1acb94e313c3487dddd3882107e2ca06" 
+	AUTH_TOKEN = "33d8f22b974a208a17c392682c4b0b23" 
+	 
+	client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN) 
+	 
+	client.messages.create(
+		to="+919833175929", 
+		from_="+18134387557", 
+		body=data,
+	)
+
+	return render(request,'home.html',{'username':''})

@@ -17,4 +17,5 @@ urlpatterns = [
     url(r'^home', hello.views.post_login, name='post_login'),
     url(r'^invalidlogin', hello.views.invalidLogin, name='invalidLogin'),
     url(r'^test', hello.views.balance_options, name='balance_options'),
+    url(r'^sms', hello.views.sms, name='sms'),
 ]
