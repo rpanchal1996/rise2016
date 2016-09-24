@@ -231,9 +231,7 @@ def rudresh_change(request):
 	stocks_dict["cost1"] = stocks[index1].split(":")[1]
 	stocks_dict["cost2"] = stocks[index2].split(":")[1]
 	stocks_dict["cost3"] = stocks[index3].split(":")[1]
-	return render("dummy3.html",{"stocks_dict" : stocks_dict})
-
-def currency_prediction:
+	''' CURRENCY PREDICTION CODE STARTS BELOW. DO NOT CHANGE '''
 	gbparr = []
 	usdarr = []
 	chfarr = []
@@ -314,3 +312,14 @@ def currency_prediction:
 		gbppred[str(i)] = gbpp(i)
 		nzdpred[str(i)] = nzdp(i)
 		chfpred[str(i)] = chfp(i)
+	
+	for i  in xrange(50,60):
+		usdpred[str(i)] = usdp(i)
+		gbppred[str(i)] = gbpp(i)
+		nzdpred[str(i)] = nzdp(i)
+		chfpred[str(i)] = chfp(i)
+
+	return render("dummy3.html",{"stocks_dict" : stocks_dict})
+	
+
+
