@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+<link REL=StyleSheet HREF="{% static "aural.css" %}" TYPE="text/css" />
+</head>
+<body>
+<div class="login">
+	<h3> {{money}} {{from}} {{to}}</h3>
+    <form method="post" action="/test/" enctype="multipart/form-data">
+    	{% csrf_token %}
+    	<input type="number" name="acc1_bal" placeholder="acc1_bal" required="required" />
+    	<input type="number" name="acc1_lim" placeholder="acc1_lim" required="required" />
+    	<input type="number" name="acc2_bal" placeholder="acc2_bal" required="required" />
+    	<input type="number" name="acc2_lim" placeholder="acc2_lim" required="required" />
+    	<input type="number" name="acc3_bal" placeholder="acc3_bal" required="required" />
+    	<input type="number" name="acc3_lim" placeholder="acc3_lim" required="required" />
+    	<input type="number" name="acc4_bal" placeholder="acc4_bal" required="required" />
+    	<input type="number" name="acc4_lim" placeholder="acc4_lim" required="required" />
+    	<button type="submit" class="btn btn-primary btn-block btn-large">Register!</button>
+    </form>
+</div>
+</body>
+
+
+</body>
+</html>

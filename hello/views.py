@@ -10,7 +10,8 @@ import numpy as np
 from sklearn import datasets, linear_model
 
 from .models import Usermodel
-import json
+import os
+os.chdir("/home/rudresh/Desktop/Rise Hackathon/webtechShitToPush/python-getting-started/hello/")
 # Create your views here.
 def index(request):
     # return HttpResponse('Hello from Python!')
@@ -60,118 +61,10 @@ def post_login(request):
 def invalidLogin(request):
 	return render(request,'invalidLogin.html')
 
-def after_login(request):
-	f = open("data/account1.json","r")
-	i = 0
-	json_obj = {}
-	balance = 500000
-	for line in f:
-		line_json = json.loads(line)
-		line_obj = {}
-		final_json = '['
-		for i in range(0,len(line_json)):
-			json_obj = '{'
-			line_obj = line_json[i]
-			json_obj += "\"account\" :" + "\"" + line_obj["account1"] + "\","
-			if line_obj["transaction"] == 0:
-				balance -= line_obj["amount"]
-			else:
-				balance += line_obj["amount"]
-			json_obj += "\"balance\" :" + "\"" + str(balance) + "\","
-			json_obj += "\"date\" :" + "\"" + str(line_obj["date"]) + "\","
-			json_obj += "\"month\" :" +  "\"" + str(line_obj["month"]) + "\""
-			final_json += json_obj + "}"
-			if (i+1) != len(line_json):
-				final_json += ','
-			else:
-				final_json += ']'
-
-	obj1 = json.loads(final_json)
-
-	f = open("data/account2.json","r")
-	i = 0
-	json_obj = {}
-	balance = 500000
-	for line in f:
-		line_json = json.loads(line)
-		line_obj = {}
-		final_json = '['
-		for i in range(0,len(line_json)):
-			json_obj = '{'
-			line_obj = line_json[i]
-			json_obj += "\"account\" :" + "\"" + line_obj["account1"] + "\","
-			if line_obj["transaction"] == 0:
-				balance -= line_obj["amount"]
-			else:
-				balance += line_obj["amount"]
-			json_obj += "\"balance\" :" + "\"" + str(balance) + "\","
-			json_obj += "\"date\" :" + "\"" + str(line_obj["date"]) + "\","
-			json_obj += "\"month\" :" +  "\"" + str(line_obj["month"]) + "\""
-			final_json += json_obj + "}"
-			if (i+1) != len(line_json):
-				final_json += ','
-			else:
-				final_json += ']'
-
-	obj2 = json.loads(final_json)
-
-	f = open("data/account3.json","r")
-	i = 0
-	json_obj = {}
-	balance = 500000
-	for line in f:
-		line_json = json.loads(line)
-		line_obj = {}
-		final_json = '['
-		for i in range(0,len(line_json)):
-			json_obj = '{'
-			line_obj = line_json[i]
-			json_obj += "\"account\" :" + "\"" + line_obj["account1"] + "\","
-			if line_obj["transaction"] == 0:
-				balance -= line_obj["amount"]
-			else:
-				balance += line_obj["amount"]
-			json_obj += "\"balance\" :" + "\"" + str(balance) + "\","
-			json_obj += "\"date\" :" + "\"" + str(line_obj["date"]) + "\","
-			json_obj += "\"month\" :" +  "\"" + str(line_obj["month"]) + "\""
-			final_json += json_obj + "}"
-			if (i+1) != len(line_json):
-				final_json += ','
-			else:
-				final_json += ']'
-	obj3 = json.loads(final_json)
-
-	f = open("data/account4.json","r")
-	i = 0
-	json_obj = {}
-	balance = 500000
-	for line in f:
-		line_json = json.loads(line)
-		line_obj = {}
-		final_json = '['
-		for i in range(0,len(line_json)):
-			json_obj = '{'
-			line_obj = line_json[i]
-			json_obj += "\"account\" :" + "\"" + line_obj["account1"] + "\","
-			if line_obj["transaction"] == 0:
-				balance -= line_obj["amount"]
-			else:
-				balance += line_obj["amount"]
-			json_obj += "\"balance\" :" + "\"" + str(balance) + "\","
-			json_obj += "\"date\" :" + "\"" + str(line_obj["date"]) + "\","
-			json_obj += "\"month\" :" +  "\"" + str(line_obj["month"]) + "\""
-			final_json += json_obj + "}"
-			if (i+1) != len(line_json):
-				final_json += ','
-			else:
-				final_json += ']'
-
-	obj4 = json.loads(final_json)
-	final_obj = json.loads("["+str(obj1)+","+str(obj2)+","+str(obj3)+","+str(obj4)+"]")
-	return render(request, "dummy.html", {"obj" : final_obj})
-
-def pred_bal(month,day):
+def pred_bal(month,day,acc):
+	url = 'data/account'+str(acc)+'.json'
 	df = pd.read_json(path_or_buf=url)
+
 	df_jan = df.loc[df['month']==month]
 	till_now = 500000
 	columns = ['Bal']
@@ -204,3 +97,73 @@ def pred_bal(month,day):
 	#print(regr.predict(day))
 
 	return (regr.predict(day)) 
+
+def is_safe(month,day,acc,ballim):
+	return int(pred_bal(month,day,acc))-int(ballim)
+
+def best_account(acc1_bal,acc1_lim,acc2_bal,acc2_lim,acc3_bal,acc3_lim,acc4_bal,acc4_lim):
+	all_acs = {}
+	all_acs[1] = acc1_bal - acc1_lim
+	all_acs[2] = acc2_bal - acc2_lim
+	all_acs[3] = acc3_bal - acc3_lim
+	all_acs[4] = acc4_bal - acc4_lim
+	return max(all_acs, key=all_acs.get)
+
+def balance_options(request):
+
+	to_transfer = 0
+	best_account_val = 0
+	dest_acc = 0
+	if request.method == 'POST':
+		month = 'Feb'
+		day = 12
+		acc1_bal = int(request.POST.get('acc1_bal'))
+		acc1_lim = int(request.POST.get('acc1_lim'))
+		acc2_bal = int(request.POST.get('acc2_bal'))
+		acc2_lim = int(request.POST.get('acc2_lim'))
+		acc3_bal = int(request.POST.get('acc3_bal'))
+		acc3_lim = int(request.POST.get('acc3_lim'))
+		acc4_bal = int(request.POST.get('acc4_bal'))
+		acc4_lim = int(request.POST.get('acc4_lim'))
+		
+		acc2_bal = acc2_bal*1.3
+		acc2_lim = acc2_lim*1.3
+		acc3_bal = acc3_bal*1.12
+		acc3_lim = acc3_lim*1.12
+		acc4_bal = acc4_bal*1.07
+		acc4_lim = acc4_lim*1.07
+		
+		flag1 = 0
+		flag2 = 0 
+		flag3 = 0
+		flag4 = 0
+		
+		if(is_safe(month,day,1,acc1_lim)<0):
+			flag1 = 1
+		if(is_safe(month,day,2,acc2_lim)<0):
+			flag2 = 1
+		if(is_safe(month,day,3,acc3_lim)<0):
+			flag3 = 1
+		if(is_safe(month,day,4,acc4_lim)<0):
+			flag4 = 1
+		best_account_val = best_account(acc1_bal,acc1_lim,acc2_bal,acc2_lim,acc3_bal,acc3_lim,acc4_bal,acc4_lim)
+
+		if(flag1):
+			to_transfer = is_safe(month,day,1,acc1_lim)*-1
+			dest_acc = 1
+		
+		if(flag2):
+			to_transfer = is_safe(month,day,2,acc2_lim)*-1
+			dest_acc = 2
+		
+		if(flag3):
+			to_transfer = is_safe(month,day,3,acc3_lim)*-1
+			dest_acc = 3
+		
+		if(flag4):
+			to_transfer = is_safe(month,day,4,acc4_lim)*-1
+			dest_acc = 4
+
+		return render(request,'test.html',{'money':to_transfer,'from':best_account_val,'to':dest_acc})
+
+	return render(request,'test.html',{'money':to_transfer,'from':best_account_val,'to':dest_acc})

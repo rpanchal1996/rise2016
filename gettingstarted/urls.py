@@ -16,4 +16,5 @@ urlpatterns = [
     url(r'^login', hello.views.user_login, name='user_login'),
     url(r'^home', hello.views.post_login, name='post_login'),
     url(r'^invalidlogin', hello.views.invalidLogin, name='invalidLogin'),
+    url(r'^test', hello.views.balance_options, name='balance_options'),
 ]
