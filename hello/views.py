@@ -5,13 +5,13 @@ from django.contrib.auth import authenticate, login, logout
 import pandas as pd
 import json
 from pandas.tools.plotting import scatter_matrix
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import datasets, linear_model
 
 from .models import Usermodel
 import os
-os.chdir("/home/rudresh/Desktop/Rise Hackathon/webtechShitToPush/python-getting-started/hello/")
+os.chdir("/home/avais/Desktop/rise/rise2016/hello")
 # Create your views here.
 def index(request):
     # return HttpResponse('Hello from Python!')
@@ -22,7 +22,7 @@ def after_login(request):
 	for line in f:
 		final_obj = line
 	return render(request, "dummy.html", {"obj" : final_obj})
-	
+
 def analyse(fromAccount, toAccount, amount, balanceFrom, balanceTo):
 	balanceFrom -= amount
 	balanceTo += amount
@@ -172,7 +172,5 @@ def balance_options(request):
 		if(flag4):
 			to_transfer = is_safe(month,day,4,acc4_lim)*-1
 			dest_acc = 4
-
-		return render(request,'test.html',{'money':to_transfer,'from':best_account_val,'to':dest_acc})
-
+		analyse(best_account_val,dest_acc,to_transfer,678998,382176)
 	return render(request,'test.html',{'money':to_transfer,'from':best_account_val,'to':dest_acc})
