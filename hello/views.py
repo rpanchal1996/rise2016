@@ -2,7 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-
+import pandas as pd
+import json
+from pandas.tools.plotting import scatter_matrix
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn import datasets, linear_model
 
 from .models import Usermodel
 
@@ -54,6 +59,41 @@ def post_login(request):
 
 def invalidLogin(request):
 	return render(request,'invalidLogin.html')
+
+def pred_bal(month,day):
+	df = pd.read_json(path_or_buf=url)
+	df_jan = df.loc[df['month']==month]
+	till_now = 500000
+	columns = ['Bal']
+	count = 1
+	new_df = pd.DataFrame(columns=columns)
+	for index, row in df_jan.iterrows():
+		if(row['transaction']==0):
+			till_now = till_now+row['amount']
+		else:
+			till_now = till_now-row['amount']
+		
+		temp_df = pd.DataFrame({'Bal':[till_now],'number':row['date']})
+		
+		new_df = new_df.append(temp_df)
+		count = count+1
+		
+	print(new_df)
+	x = new_df.number.values
+	X = x.reshape(count-1,1)
+	y = new_df.Bal.values
+	Y = y.reshape(count-1,1)
+
+	regr = linear_model.LinearRegression()
+	regr.fit(X,Y)
+	#plt.scatter(x, y,  color='black')
+	#plt.plot(X, regr.predict(X), color='blue', linewidth=3)
+	#plt.xticks(())
+	#plt.yticks(())
+	#plt.show()
+	#print(regr.predict(day))
+
+	return (regr.predict(day)) 
 
 
 
