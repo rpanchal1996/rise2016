@@ -1,0 +1,692 @@
+[
+  {
+    "name": "Biotechnology Portfolio",
+    "shortTermProfit": 27.74,
+    "longTermProfit": 31.22,
+    "risk": 0.94
+  },
+  {
+    "name": "Health Care Portfolio",
+    "shortTermProfit": 40.09,
+    "longTermProfit": 24.55,
+    "risk": 0.89
+  },
+  {
+    "name": "Air Transportation Portfolio",
+    "shortTermProfit": 39.57,
+    "longTermProfit": 21.83,
+    "risk": 0.85
+  },
+  {
+    "name": "Pharmaceuticals Portfolio",
+    "shortTermProfit": 32.3,
+    "longTermProfit": 20.49,
+    "risk": 0.77
+  },
+  {
+    "name": "Multimedia Portfolio",
+    "shortTermProfit": 22.6,
+    "longTermProfit": 20.16,
+    "risk": 1.17
+  },
+  {
+    "name": "Retailing Portfolio",
+    "shortTermProfit": 18.07,
+    "longTermProfit": 18.92,
+    "risk": 0.99
+  },
+  {
+    "name": "Software and Computer Services Portfolio",
+    "shortTermProfit": 28.58,
+    "longTermProfit": 18.79,
+    "risk": 1.15
+  },
+  {
+    "name": "Transportation Portfolio",
+    "shortTermProfit": 37.28,
+    "longTermProfit": 18.55,
+    "risk": 1.06
+  },
+  {
+    "name": "Construction and Housing Portfolio",
+    "shortTermProfit": 6.42,
+    "longTermProfit": 18.2,
+    "risk": 1.25
+  },
+  {
+    "name": "Consumer Finance Portfolio",
+    "shortTermProfit": 13.85,
+    "longTermProfit": 17.89,
+    "risk": 0.98
+  },
+  {
+    "name": "IT Services Portfolio",
+    "shortTermProfit": 22.98,
+    "longTermProfit": 17.85,
+    "risk": 1.23
+  },
+  {
+    "name": "Defense and Aerospace Portfolio",
+    "shortTermProfit": 26.87,
+    "longTermProfit": 17.61,
+    "risk": 0.95
+  },
+  {
+    "name": "Consumer Discretionary Portfolio",
+    "shortTermProfit": 19.5,
+    "longTermProfit": 17.14,
+    "risk": 1.09
+  },
+  {
+    "name": "OpenWealth Large Cap Stock Fund",
+    "shortTermProfit": 22.93,
+    "longTermProfit": 17.07,
+    "risk": 1.13
+  },
+  {
+    "name": "Insurance Portfolio",
+    "shortTermProfit": 18.68,
+    "longTermProfit": 16.45,
+    "risk": 1.12
+  },
+  {
+    "name": "Chemicals Portfolio",
+    "shortTermProfit": 25.98,
+    "longTermProfit": 16.41,
+    "risk": 1.38
+  },
+  {
+    "name": "Leisure Portfolio",
+    "shortTermProfit": 20.77,
+    "longTermProfit": 16.3,
+    "risk": 1.13
+  },
+  {
+    "name": "OpenWealth Growth & Income Portfolio",
+    "shortTermProfit": 18.5,
+    "longTermProfit": 16.08,
+    "risk": 1.02
+  },
+  {
+    "name": "OpenWealth Large Cap Core Enhanced Index Fund",
+    "shortTermProfit": 21.55,
+    "longTermProfit": 15.92,
+    "risk": 0.98
+  },
+  {
+    "name": "OpenWealth Nasdaq Composite Index Fund",
+    "shortTermProfit": 24.07,
+    "longTermProfit": 15.65,
+    "risk": 1
+  },
+  {
+    "name": "OpenWealth Capital Appreciation Fund",
+    "shortTermProfit": 19.78,
+    "longTermProfit": 15.57,
+    "risk": 1.03
+  },
+  {
+    "name": "OpenWealth New Millennium Fund",
+    "shortTermProfit": 22.38,
+    "longTermProfit": 15.56,
+    "risk": 0.95
+  },
+  {
+    "name": "Utilities Portfolio",
+    "shortTermProfit": 26.83,
+    "longTermProfit": 15.53,
+    "risk": 0.31
+  },
+  {
+    "name": "OpenWealth Mid Cap Value Fund",
+    "shortTermProfit": 22.74,
+    "longTermProfit": 15.09,
+    "risk": 1.06
+  },
+  {
+    "name": "Spartan 500 Index Fund - Investor Class",
+    "shortTermProfit": 20.33,
+    "longTermProfit": 15.04,
+    "risk": 1
+  },
+  {
+    "name": "Banking Portfolio",
+    "shortTermProfit": 19.83,
+    "longTermProfit": 14.97,
+    "risk": 1.21
+  },
+  {
+    "name": "OpenWealth Mid Cap Enhanced Index Fund",
+    "shortTermProfit": 24.48,
+    "longTermProfit": 14.96,
+    "risk": 1.02
+  },
+  {
+    "name": "OpenWealth Value Fund",
+    "shortTermProfit": 22.39,
+    "longTermProfit": 14.82,
+    "risk": 1.08
+  },
+  {
+    "name": "OpenWealth Japan Smaller Companies Fund",
+    "shortTermProfit": 9.9,
+    "longTermProfit": 14.77,
+    "risk": 1.26
+  },
+  {
+    "name": "Spartan Total Market Index Fund - Investor Class",
+    "shortTermProfit": 20.25,
+    "longTermProfit": 14.71,
+    "risk": 1
+  },
+  {
+    "name": "OpenWealth Stock r Large Cap Value Fund",
+    "shortTermProfit": 20.04,
+    "longTermProfit": 14.52,
+    "risk": 1.01
+  },
+  {
+    "name": "Industrials Portfolio",
+    "shortTermProfit": 23.42,
+    "longTermProfit": 14.51,
+    "risk": 1.22
+  },
+  {
+    "name": "OpenWealth Telecom and Utilities Fund",
+    "shortTermProfit": 24.27,
+    "longTermProfit": 14.4,
+    "risk": 0.41
+  },
+  {
+    "name": "OpenWealth Contrafund",
+    "shortTermProfit": 20.62,
+    "longTermProfit": 14.39,
+    "risk": 0.96
+  },
+  {
+    "name": "OpenWealth Focused Stock Fund",
+    "shortTermProfit": 22.75,
+    "longTermProfit": 14.32,
+    "risk": 1.04
+  },
+  {
+    "name": "Consumer Staples Portfolio",
+    "shortTermProfit": 14.14,
+    "longTermProfit": 14.11,
+    "risk": 0.72
+  },
+  {
+    "name": "OpenWealth Low-Priced Stock Fund",
+    "shortTermProfit": 18.86,
+    "longTermProfit": 14.03,
+    "risk": 0.77
+  },
+  {
+    "name": "OpenWealth Mid-Cap Stock Fund",
+    "shortTermProfit": 22.92,
+    "longTermProfit": 13.95,
+    "risk": 0.87
+  },
+  {
+    "name": "OpenWealth Small Cap Enhanced Index Fund",
+    "shortTermProfit": 18.18,
+    "longTermProfit": 13.58,
+    "risk": 1.01
+  },
+  {
+    "name": "Spartan Extended Market Index Fund - Investor Class",
+    "shortTermProfit": 20.1,
+    "longTermProfit": 13.28,
+    "risk": 1
+  },
+  {
+    "name": "OpenWealth Stock r Mid Cap Fund",
+    "shortTermProfit": 18.53,
+    "longTermProfit": 13,
+    "risk": 0.94
+  },
+  {
+    "name": "Brokerage and Investment Management Portfolio",
+    "shortTermProfit": 13,
+    "longTermProfit": 12.81,
+    "risk": 1.54
+  },
+  {
+    "name": "OpenWealth Value Strategies Fund",
+    "shortTermProfit": 17.72,
+    "longTermProfit": 12.28,
+    "risk": 1.12
+  },
+  {
+    "name": "OpenWealth Strategic Dividend & Income Fund",
+    "shortTermProfit": 13.58,
+    "longTermProfit": 11.98,
+    "risk": 0.69
+  },
+  {
+    "name": "Financial Services Portfolio",
+    "shortTermProfit": 15.52,
+    "longTermProfit": 11.58,
+    "risk": 1.39
+  },
+  {
+    "name": "OpenWealth International Small Cap Opportunities Fund",
+    "shortTermProfit": 20.18,
+    "longTermProfit": 11.26,
+    "risk": 0.86
+  },
+  {
+    "name": "OpenWealth Worldwide Fund",
+    "shortTermProfit": 19.29,
+    "longTermProfit": 11.16,
+    "risk": 1.01
+  },
+  {
+    "name": "Wireless Portfolio",
+    "shortTermProfit": 22.28,
+    "longTermProfit": 10.96,
+    "risk": 0.78
+  },
+  {
+    "name": "Computers Portfolio",
+    "shortTermProfit": 15.98,
+    "longTermProfit": 10.86,
+    "risk": 1.29
+  },
+  {
+    "name": "Electronics Portfolio",
+    "shortTermProfit": 35.45,
+    "longTermProfit": 10.85,
+    "risk": 1.26
+  },
+  {
+    "name": "OpenWealth Small Cap Growth Fund",
+    "shortTermProfit": 16.71,
+    "longTermProfit": 10.81,
+    "risk": 0.96
+  },
+  {
+    "name": "OpenWealth Balanced Fund",
+    "shortTermProfit": 15.46,
+    "longTermProfit": 10.75,
+    "risk": 0.67
+  },
+  {
+    "name": "OpenWealth Puritan Fund",
+    "shortTermProfit": 15.77,
+    "longTermProfit": 10.54,
+    "risk": 0.69
+  },
+  {
+    "name": "Technology Portfolio",
+    "shortTermProfit": 23.87,
+    "longTermProfit": 10.34,
+    "risk": 1.15
+  },
+  {
+    "name": "OpenWealth Growth Strategies Fund",
+    "shortTermProfit": 22.42,
+    "longTermProfit": 10.31,
+    "risk": 1.07
+  },
+  {
+    "name": "OpenWealth Real Estate Investment Portfolio",
+    "shortTermProfit": 9.59,
+    "longTermProfit": 9.93,
+    "risk": 0.97
+  },
+  {
+    "name": "OpenWealth Real Estate Income Fund",
+    "shortTermProfit": 6.9,
+    "longTermProfit": 9.83,
+    "risk": 0.35
+  },
+  {
+    "name": "OpenWealth International Real Estate Fund",
+    "shortTermProfit": 12.44,
+    "longTermProfit": 9.77,
+    "risk": 1.07
+  },
+  {
+    "name": "Materials Portfolio",
+    "shortTermProfit": 18.84,
+    "longTermProfit": 9.61,
+    "risk": 1.41
+  },
+  {
+    "name": "OpenWealth Overseas Fund",
+    "shortTermProfit": 21.17,
+    "longTermProfit": 9.29,
+    "risk": 1.09
+  },
+  {
+    "name": "OpenWealth Convertible Securities Fund",
+    "shortTermProfit": 15.14,
+    "longTermProfit": 9.15,
+    "risk": 1.24
+  },
+  {
+    "name": "OpenWealth International Capital Appreciation Fund",
+    "shortTermProfit": 16.35,
+    "longTermProfit": 9.15,
+    "risk": 1.06
+  },
+  {
+    "name": "OpenWealth International Small Cap Fund",
+    "shortTermProfit": 19.77,
+    "longTermProfit": 8.83,
+    "risk": 0.94
+  },
+  {
+    "name": "OpenWealth Europe Fund",
+    "shortTermProfit": 21.21,
+    "longTermProfit": 8.8,
+    "risk": 0.99
+  },
+  {
+    "name": "OpenWealth Pacific Basin Fund",
+    "shortTermProfit": 13.43,
+    "longTermProfit": 8.67,
+    "risk": 1.05
+  },
+  {
+    "name": "Telecommunications Portfolio",
+    "shortTermProfit": 15.37,
+    "longTermProfit": 8.62,
+    "risk": 0.7
+  },
+  {
+    "name": "OpenWealth New Markets Income Fund",
+    "shortTermProfit": 5.22,
+    "longTermProfit": 8.38,
+    "risk": 0.98
+  },
+  {
+    "name": "OpenWealth International Growth Fund",
+    "shortTermProfit": 15.64,
+    "longTermProfit": 8.24,
+    "risk": 0.93
+  },
+  {
+    "name": "Natural Gas Portfolio",
+    "shortTermProfit": 30.85,
+    "longTermProfit": 8.06,
+    "risk": 1.31
+  },
+  {
+    "name": "Spartan Long-Term Treasury Bond Index Fund - Investor Class",
+    "shortTermProfit": 2.47,
+    "longTermProfit": 7.89,
+    "risk": 1.02
+  },
+  {
+    "name": "OpenWealth Diversified International Fund",
+    "shortTermProfit": 18.67,
+    "longTermProfit": 7.66,
+    "risk": 0.98
+  },
+  {
+    "name": "OpenWealth High Income Fund",
+    "shortTermProfit": 6.6,
+    "longTermProfit": 7.62,
+    "risk": 1.05
+  },
+  {
+    "name": "OpenWealth International Discovery Fund",
+    "shortTermProfit": 15.55,
+    "longTermProfit": 7.44,
+    "risk": 0.98
+  },
+  {
+    "name": "OpenWealth Capital & Income Fund",
+    "shortTermProfit": 10.05,
+    "longTermProfit": 7.41,
+    "risk": 1.23
+  },
+  {
+    "name": "Spartan International Index Fund - Investor Class",
+    "shortTermProfit": 18.73,
+    "longTermProfit": 7.31,
+    "risk": 0.99
+  },
+  {
+    "name": "OpenWealth Global Balanced Fund",
+    "shortTermProfit": 13.5,
+    "longTermProfit": 6.94,
+    "risk": 0.63
+  },
+  {
+    "name": "OpenWealth California Municipal Income Fund",
+    "shortTermProfit": 4.1,
+    "longTermProfit": 6.69,
+    "risk": 1.05
+  },
+  {
+    "name": "OpenWealth Corporate Bond Fund",
+    "shortTermProfit": 4.91,
+    "longTermProfit": 6.52,
+    "risk": 1.05
+  },
+  {
+    "name": "OpenWealth Tax-Free Bond Fund",
+    "shortTermProfit": 3.68,
+    "longTermProfit": 6.21,
+    "risk": 0.96
+  },
+  {
+    "name": "Energy Portfolio",
+    "shortTermProfit": 21.9,
+    "longTermProfit": 6.02,
+    "risk": 1.58
+  },
+  {
+    "name": "OpenWealth Municipal Income Fund",
+    "shortTermProfit": 3.48,
+    "longTermProfit": 6.01,
+    "risk": 1.06
+  },
+  {
+    "name": "OpenWealth Japan Fund",
+    "shortTermProfit": 6.44,
+    "longTermProfit": 5.94,
+    "risk": 1.01
+  },
+  {
+    "name": "OpenWealth Pennsylvania Municipal Income Fund",
+    "shortTermProfit": 3.36,
+    "longTermProfit": 5.43,
+    "risk": 1.01
+  },
+  {
+    "name": "OpenWealth Total International Equity Fund",
+    "shortTermProfit": 13.19,
+    "longTermProfit": 5.43,
+    "risk": 0.95
+  },
+  {
+    "name": "OpenWealth New Jersey Municipal Income Fund",
+    "shortTermProfit": 2.77,
+    "longTermProfit": 5.39,
+    "risk": 1.04
+  },
+  {
+    "name": "OpenWealth Massachusetts Municipal Income Fund",
+    "shortTermProfit": 2.81,
+    "longTermProfit": 5.31,
+    "risk": 1.12
+  },
+  {
+    "name": "OpenWealth Ohio Municipal Income Fund",
+    "shortTermProfit": 3.48,
+    "longTermProfit": 5.31,
+    "risk": 1.06
+  },
+  {
+    "name": "OpenWealth Strategic Income Fund",
+    "shortTermProfit": 5.14,
+    "longTermProfit": 5.28,
+    "risk": 0.65
+  },
+  {
+    "name": "OpenWealth New York Municipal Income Fund",
+    "shortTermProfit": 3.08,
+    "longTermProfit": 5.07,
+    "risk": 1.05
+  },
+  {
+    "name": "OpenWealth Michigan Municipal Income Fund",
+    "shortTermProfit": 2.18,
+    "longTermProfit": 4.78,
+    "risk": 0.91
+  },
+  {
+    "name": "OpenWealth Total Bond Fund",
+    "shortTermProfit": 3.46,
+    "longTermProfit": 4.44,
+    "risk": 0.98
+  },
+  {
+    "name": "OpenWealth Connecticut Municipal Income Fund",
+    "shortTermProfit": 3.01,
+    "longTermProfit": 4.38,
+    "risk": 0.97
+  },
+  {
+    "name": "OpenWealth Investment Grade Bond Fund",
+    "shortTermProfit": 3.13,
+    "longTermProfit": 4.25,
+    "risk": 1.03
+  },
+  {
+    "name": "OpenWealth Intermediate Municipal Income Fund",
+    "shortTermProfit": 2.6,
+    "longTermProfit": 4.18,
+    "risk": 0.74
+  },
+  {
+    "name": "Energy Service Portfolio",
+    "shortTermProfit": 23.63,
+    "longTermProfit": 4.17,
+    "risk": 1.75
+  },
+  {
+    "name": "OpenWealth China Region Fund",
+    "shortTermProfit": 9.36,
+    "longTermProfit": 3.65,
+    "risk": 0.97
+  },
+  {
+    "name": "Spartan Intermediate Treasury Bond Index Fund - Investor Class",
+    "shortTermProfit": 0.18,
+    "longTermProfit": 3.65,
+    "risk": 1.02
+  },
+  {
+    "name": "Spartan U.S. Bond Index Fund - Investor Class",
+    "shortTermProfit": 2.44,
+    "longTermProfit": 3.34,
+    "risk": 1.03
+  },
+  {
+    "name": "OpenWealth Intermediate Bond Fund",
+    "shortTermProfit": 2.14,
+    "longTermProfit": 3.23,
+    "risk": 1.07
+  },
+  {
+    "name": "OpenWealth Mortgage Securities Fund",
+    "shortTermProfit": 3.06,
+    "longTermProfit": 3.2,
+    "risk": 1.08
+  },
+  {
+    "name": "Natural Resources Portfolio",
+    "shortTermProfit": 20.85,
+    "longTermProfit": 3.18,
+    "risk": 1.54
+  },
+  {
+    "name": "OpenWealth GNMA Fund",
+    "shortTermProfit": 3.08,
+    "longTermProfit": 3.05,
+    "risk": 1.05
+  },
+  {
+    "name": "OpenWealth Limited Term Bond Fund",
+    "shortTermProfit": 1.65,
+    "longTermProfit": 3,
+    "risk": 1.9
+  },
+  {
+    "name": "OpenWealth Government Income Fund",
+    "shortTermProfit": 1.67,
+    "longTermProfit": 2.82,
+    "risk": 0.8
+  },
+  {
+    "name": "OpenWealth California Limited Term Tax-Free Bond Fund",
+    "shortTermProfit": 2.13,
+    "longTermProfit": 2.53,
+    "risk": 0.4
+  },
+  {
+    "name": "OpenWealth Limited Term Municipal Income Fund",
+    "shortTermProfit": 1.51,
+    "longTermProfit": 2.13,
+    "risk": 0.33
+  },
+  {
+    "name": "OpenWealth Intermediate Government Income Fund",
+    "shortTermProfit": 0.96,
+    "longTermProfit": 1.98,
+    "risk": 1.02
+  },
+  {
+    "name": "OpenWealth Canada Fund",
+    "shortTermProfit": 14.58,
+    "longTermProfit": 1.37,
+    "risk": 0.87
+  },
+  {
+    "name": "OpenWealth Short-Term Bond Fund",
+    "shortTermProfit": 1.23,
+    "longTermProfit": 1.37,
+    "risk": 1.44
+  },
+  {
+    "name": "OpenWealth Emerging Asia Fund",
+    "shortTermProfit": 8.24,
+    "longTermProfit": 1.36,
+    "risk": 0.99
+  },
+  {
+    "name": "OpenWealth Limited Term Government Fund",
+    "shortTermProfit": 0.84,
+    "longTermProfit": 1.03,
+    "risk": 0.94
+  },
+  {
+    "name": "OpenWealth Conservative Income Bond Fund",
+    "shortTermProfit": 0.4,
+    "longTermProfit": 0.66,
+    "risk": -0.48
+  },
+  {
+    "name": "OpenWealth Emerging Markets Fund",
+    "shortTermProfit": 6.04,
+    "longTermProfit": -1.36,
+    "risk": 0.97
+  },
+  {
+    "name": "Gold Portfolio",
+    "shortTermProfit": -17.17,
+    "longTermProfit": -25.86,
+    "risk": 0.44
+  },
+  {
+    "name": "OpenWealth Nordic Fund",
+    "shortTermProfit": 41.07,
+    "longTermProfit": 13.25,
+    "risk": 0.91
+  }
+]
