@@ -13,7 +13,6 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="../static/css/simple-sidebar.css" rel="stylesheet">
     <link href="../static/css/home.css" rel="stylesheet">
@@ -23,6 +22,24 @@
 </head>
 
 <body>
+  <style>
+  body{
+    font-family: 'Open Sans', serif;
+  }
+
+  tr{
+    transition : all 0.1s linear;
+  }
+
+  td:hover{
+    background: rgba(242, 96, 92, 0.2) !important;
+  }
+
+  tbody> tr:hover{ 
+    background: rgba(242, 96, 92, 0.2) !important;
+  }
+
+  </style>
   <div id="wrapper">
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
@@ -38,40 +55,39 @@
             <li>
                 <a href="/">Dashboard</a>
             </li>
+
         </ul>
     </div>
 
     <div id="page-content-wrapper">
         <div class="container-fluid">
-          <table class="table table-inverse">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Current Risk</th>
-      <th>Profit %</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for item in entries %}
-      {% if item.val %}
-        <tr style="color: red">
-        <td>{{item.name}}</td>
-        <td>{{item.type}}</td>
-        <td>{{item.shortTermProfit}}%</td>
-        </tr>
-      {% else %}
-        <tr>
-        <td>{{item.name}}</td>
-        <td>{{item.type}}</td>
-        <td>{{item.shortTermProfit}}%</td>
-        </tr>
-      {% endif %}
-
-    
-    {% endfor %}
-    </tbody>
-</table>
+          <table class="table table-hover" style="border: solid #F25F5C 1px">
+            <thead style="background: #F25F5C; font-size: 1.4em; border: none; color: #FFF; margin: 0;">
+              <tr style="background:black; color:white">
+                <th >Name</th>
+                <th>Current Risk</th>
+                <th >Long Term Risk </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in entries %}
+                {% if item.val %}
+                <tr style="background: #E5524F">
+                  <td>{{item.name}}</td>
+                  <td>{{item.type}}</td>
+                  <td>{{item.shortTermProfit}}%</td>
+                </tr>
+                {% else %}
+                <tr style="background: #70C1B3">
+                  <td>{{item.name}}</td>
+                  <td>{{item.type}}</td>
+                  <td>{{item.shortTermProfit}}%</td>
+                </tr>
+                {% endif %}
+              {% endfor %}
+              </tbody>
+          </table>
         </div>
       </div>
 </body>
-</html>
+</html> 
