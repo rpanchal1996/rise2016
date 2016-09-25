@@ -11,9 +11,10 @@ from .models import Usermodel
 import requests
 import json
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import os
 os.chdir("/home/avais/Desktop/rise/rise2016/hello")
+
 import random
 # Create your views here.
 def index(request):
@@ -62,7 +63,7 @@ def after_login(request):
 		'minbal' : 600000,
 		'current' : balance,
 		'currency' : curr,
-		'status' : 'Danger'
+		'status' : 'Healthy'
 	}
 
 	f = open("data/account3.json","r")
@@ -101,18 +102,47 @@ def after_login(request):
 		'account' : acc,
 		'minbal' : 600000,
 		'current' : balance,
-		'currency' : curr,
+		'currency' : "GBP",
 		'status' : 'healthy'
 	}
+	curr_status = currency_anaylysis()
+	account_options = balance_options()
+	dest_acc = account_options['dest_acc']
+	best_account_val = account_options['best_account_val']
+	to_transfer = account_options['to_transfer']
+
+	if 1 == dest_acc:
+		dict_obj1["status"] = "Danger"
+	if 2 == dest_acc:
+		dict_obj2["status"] = "Danger"
+	if 3 == dest_acc:
+		dict_obj3["status"] = "Danger"
+	if 4 == dest_acc:
+		dict_obj4["status"] = "Danger"
 	return render(request, "home.html", {"obj" : final_obj, "dict_obj1" : dict_obj1, "dict_obj2" : dict_obj2, 
 		"dict_obj3" : dict_obj3, "dict_obj4" : dict_obj4 })
 
-def analyse(fromAccount, toAccount, amount, balanceFrom, balanceTo):
-	balanceFrom -= amount
+def analyse(request, acc, curr):
+	obj = balance_options()
+	fromAccount = obj['best_account_val']
+	toAccount = obj['dest_acc']
+	amount = obj['to_transfer']
+	balanceFrom = obj['balanceFrom']
+	balanceTo = obj['balanceTo']
+	balanceFrom -= round(amount/1.12)
 	balanceTo += amount
-	return HttpResponse("Chal gaya")
-	return render(request, "dummy2.html", {"fromAccount" : fromAccount, "toAccount" : toAccount,
-			"balanceFrom" : balanceFrom, "balanceTo" : balanceTo})
+	if acc == "56340":
+		return render(request, "usd.html", {"fromAccount" : fromAccount, "toAccount" : toAccount,
+			"balanceFrom" : balanceFrom, "balanceTo" : balanceTo, "account":  acc, "currency" : curr})
+	if acc == "55832":
+		return render(request, "nzd.html", {"fromAccount" : fromAccount, "toAccount" : toAccount,
+			"balanceFrom" : balanceFrom, "balanceTo" : balanceTo, "account":  acc, "currency" : curr})
+	if acc == "55190":
+		return render(request, "accounts.html", {"fromAccount" : "56340", "toAccount" : acc,
+				"balanceFrom" : balanceFrom, "balanceTo" : balanceTo, "account":  acc, "currency" : curr})
+	else:
+		return render(request, "gbp.html", {"fromAccount" : fromAccount, "toAccount" : toAccount,
+				"balanceFrom" : balanceFrom, "balanceTo" : balanceTo, "account":  acc, "currency" : curr})
 
 def register(request):
 	if(request.method == 'POST'):
@@ -203,62 +233,151 @@ def best_account(acc1_bal,acc1_lim,acc2_bal,acc2_lim,acc3_bal,acc3_lim,acc4_bal,
 	all_acs[4] = acc4_bal - acc4_lim
 	return max(all_acs, key=all_acs.get)
 
-def balance_options(request):
+def balance_options():
+	f = open("data/account.json","r")
+	for line in f:
+		final_obj = line
 
+	f = open("data/account1.json","r")
+	balance = 500000
+	for line in f:
+		line_json = json.loads(line)
+		for i in range(0,len(line_json)):
+			line_obj = line_json[i]
+			acc = line_obj["account1"]
+			curr = line_obj["currency"]
+			if line_obj["transaction"] == 0:
+				balance -= line_obj["amount"]
+			else:
+				balance += line_obj["amount"]
+	dict1 = {
+		'account' : acc,
+		'minbal' : 200000,
+		'current' : balance,
+		'currency' : curr,
+		'status' : 'Healthy'
+	}
+
+	f = open("data/account2.json","r")
+	balance = 500000
+	for line in f:
+		line_json = json.loads(line)
+		for i in range(0,len(line_json)):
+			line_obj = line_json[i]
+			acc = line_obj["account1"]
+			curr = line_obj["currency"]
+			if line_obj["transaction"] == 0:
+				balance -= line_obj["amount"]
+			else:
+				balance += line_obj["amount"]
+	dict2 = {
+		'account' : acc,
+		'minbal' : 200000,
+		'current' : balance,
+		'currency' : curr,
+		'status' : 'Danger'
+	}
+
+	f = open("data/account3.json","r")
+	balance = 500000
+	for line in f:
+		line_json = json.loads(line)
+		for i in range(0,len(line_json)):
+			line_obj = line_json[i]
+			acc = line_obj["account1"]
+			curr = line_obj["currency"]
+			if line_obj["transaction"] == 0:
+				balance -= line_obj["amount"]
+			else:
+				balance += line_obj["amount"]
+	dict3 = {
+		'account' : acc,
+		'minbal' : 900000,
+		'current' : balance,
+		'currency' : curr,
+		'status' : 'healthy'
+	}
+
+	f = open("data/account4.json","r")
+	balance = 500000
+	for line in f:
+		line_json = json.loads(line)
+		for i in range(0,len(line_json)):
+			line_obj = line_json[i]
+			acc = line_obj["account1"]
+			curr = line_obj["currency"]
+			if line_obj["transaction"] == 0:
+				balance -= line_obj["amount"]
+			else:
+				balance += line_obj["amount"]
+	dict4 = {
+		'account' : acc,
+		'minbal' : 200000,
+		'current' : balance,
+		'currency' : curr,
+		'status' : 'healthy'
+	}
 	to_transfer = 0
 	best_account_val = 0
 	dest_acc = 0
-	if request.method == 'POST':
-		month = 'Feb'
-		day = 12
-		acc1_bal = int(request.POST.get('acc1_bal'))
-		acc1_lim = int(request.POST.get('acc1_lim'))
-		acc2_bal = int(request.POST.get('acc2_bal'))
-		acc2_lim = int(request.POST.get('acc2_lim'))
-		acc3_bal = int(request.POST.get('acc3_bal'))
-		acc3_lim = int(request.POST.get('acc3_lim'))
-		acc4_bal = int(request.POST.get('acc4_bal'))
-		acc4_lim = int(request.POST.get('acc4_lim'))
+	
 		
-		acc2_bal = acc2_bal*1.3
-		acc2_lim = acc2_lim*1.3
-		acc3_bal = acc3_bal*1.12
-		acc3_lim = acc3_lim*1.12
-		acc4_bal = acc4_bal*1.07
-		acc4_lim = acc4_lim*1.07
-		
-		flag1 = 0
-		flag2 = 0 
-		flag3 = 0
-		flag4 = 0
-		
-		if(is_safe(month,day,1,acc1_lim)<0):
-			flag1 = 1
-		if(is_safe(month,day,2,acc2_lim)<0):
-			flag2 = 1
-		if(is_safe(month,day,3,acc3_lim)<0):
-			flag3 = 1
-		if(is_safe(month,day,4,acc4_lim)<0):
-			flag4 = 1
-		best_account_val = best_account(acc1_bal,acc1_lim,acc2_bal,acc2_lim,acc3_bal,acc3_lim,acc4_bal,acc4_lim)
+	month = 'Sept'
+	day = 25
+	
+	acc1_bal = dict1['current']
+	acc1_lim = dict1['minbal']
+	acc2_bal = dict2['current']
+	acc2_lim = dict2['minbal']
+	acc3_bal = dict3['current']
+	acc3_lim = dict3['minbal']
+	acc4_bal = dict4['current']
+	acc4_lim = dict4['minbal']
+	
+	#acc2_bal = acc2_bal*1.3
+	#acc2_lim = acc2_lim*1.3
+	#acc3_bal = acc3_bal*1.12
+	#acc3_lim = acc3_lim*1.12
+	#acc4_bal = acc4_bal*1.07
+	#acc4_lim = acc4_lim*1.07
+	
+	flag1 = 0
+	flag2 = 0 
+	flag3 = 0
+	flag4 = 0
+	
+	if(is_safe(month,day,1,acc1_lim)<0):
+		flag1 = 1
+	if(is_safe(month,day,2,acc2_lim)<0):
+		flag2 = 1
+	if(is_safe(month,day,3,acc3_lim)<0):
+		flag3 = 1
+	if(is_safe(month,day,4,acc4_lim)<0):
+		flag4 = 1
+	best_account_val = best_account(acc1_bal,acc1_lim,acc2_bal,acc2_lim,acc3_bal,acc3_lim,acc4_bal,acc4_lim)
 
-		if(flag1):
-			to_transfer = is_safe(month,day,1,acc1_lim)*-1
-			dest_acc = 1
-		
-		if(flag2):
-			to_transfer = is_safe(month,day,2,acc2_lim)*-1
-			dest_acc = 2
-		
-		if(flag3):
-			to_transfer = is_safe(month,day,3,acc3_lim)*-1
-			dest_acc = 3
-		
-		if(flag4):
-			to_transfer = is_safe(month,day,4,acc4_lim)*-1
-			dest_acc = 4
-		analyse(best_account_val,dest_acc,to_transfer,678998,382176)
-	return render(request,'test.html',{'money':to_transfer,'from':best_account_val,'to':dest_acc})
+	if(flag1):
+		to_transfer = is_safe(month,day,1,acc1_lim)*-1
+		dest_acc = 1
+	
+	if(flag2):
+		to_transfer = is_safe(month,day,2,acc2_lim)*-1
+		dest_acc = 2
+	
+	if(flag3):
+		to_transfer = is_safe(month,day,3,acc3_lim)*-1
+		dest_acc = 3
+	
+	if(flag4):
+		to_transfer = is_safe(month,day,4,acc4_lim)*-1
+		dest_acc = 4
+	diction = {}
+	diction['dest_acc'] = dest_acc
+	diction['best_account_val'] = best_account_val
+	diction['to_transfer'] = to_transfer
+	diction['balanceFrom'] = 678998
+	diction['balanceTo'] = 382176
+	return diction
 
 def sms(request):
 	data = "Hello from Barclays."
@@ -278,7 +397,7 @@ def sms(request):
 
 	return render(request,'home.html',{'username':''})
 
-def rudresh_change(request):
+def currency_anaylysis():
 	stocks = [
 		"Novavax, Inc.:$ 2.26",
 		"Apple Inc.:$ 112.71",
@@ -313,11 +432,13 @@ def rudresh_change(request):
 	stocks_dict["cost2"] = stocks[index2].split(":")[1]
 	stocks_dict["cost3"] = stocks[index3].split(":")[1]
 	''' CURRENCY PREDICTION CODE STARTS BELOW. DO NOT CHANGE '''
+	
 	gbparr = []
 	usdarr = []
 	chfarr = []
 	nzdarr = []
 	count =[]
+	'''
 	for date in xrange(1,31):
 		if(date>9):
 			url = 'http://api.fixer.io/2016-08-'+str(date)
@@ -346,10 +467,29 @@ def rudresh_change(request):
 		chfarr.append(r['rates']['CHF'])
 		nzdarr.append(r['rates']['NZD']/1.5)
 		count.append(date+30)
-
+	'''
 
 	#m_sqr_usd =np.sum(((y-np.average(y))**2))
 	#print(m_sqr_usd)
+	with open('data/chfdat.json') as data_file:    
+		datachf = json.load(data_file)
+	with open('data/usddat.json') as data_file:    
+		datausd = json.load(data_file)
+	with open('data/gbpdat.json') as data_file:    
+		datagbp = json.load(data_file)
+	with open('data/nzddat.json') as data_file:    
+		datanzd = json.load(data_file)
+
+
+
+#print(data)
+	for date in xrange(1,50):
+		chfarr.append(datachf[str(date)])
+		gbparr.append(datagbp[str(date)])
+		nzdarr.append(datanzd[str(date)])
+		usdarr.append(datausd[str(date)])
+		count.append(date)
+		
 	usdy = np.array(usdarr)
 	usdx = np.array(count)
 	nzdy = np.array(nzdarr)
@@ -358,11 +498,17 @@ def rudresh_change(request):
 	gbpx = np.array(count)
 	chfy = np.array(chfarr)
 	chfx = np.array(count)
-	print(np.sum(((nzdy-np.average(nzdy))**2)))
-	print(np.sum(((usdy-np.average(usdy))**2)))
-	print(np.sum(((gbpy-np.average(gbpy))**2)))
-	print(np.sum(((chfy-np.average(chfy))**2)))
-
+	
+	health = {}
+	health['nzd'] = (np.sum(((nzdy-np.average(nzdy))**2)))
+	health['usd'] = (np.sum(((usdy-np.average(usdy))**2)))
+	health['gbp'] = (np.sum(((gbpy-np.average(gbpy))**2)))
+	health['chf'] = (np.sum(((chfy-np.average(chfy))**2)))
+	best_currency = min(health, key=health.get)
+	worst_currency  = max(health,key=health.get)
+	currency_status = {}
+	currency_status['best_currency'] = best_currency
+	currency_status['worst_currency'] = worst_currency
 	usdz = np.polyfit(usdx,usdy,4)
 	nzdz = np.polyfit(nzdx,nzdy,4)
 	gbpz = np.polyfit(gbpx,gbpy,4)
@@ -373,8 +519,8 @@ def rudresh_change(request):
 	gbpp = np.poly1d(gbpz)
 	chfp = np.poly1d(chfz)
 
-	plt.plot(usdx,usdy,usdp(usdx),'-')
-	plt.show()
+	#plt.plot(usdx,usdy,usdp(usdx),'-')
+	#plt.show()
 	usddat = {}
 	usdpred = {}
 	nzddat = {}
@@ -400,7 +546,10 @@ def rudresh_change(request):
 		nzdpred[str(i)] = nzdp(i)
 		chfpred[str(i)] = chfp(i)
 
-	return render("dummy3.html",{"stocks_dict" : stocks_dict})
+	return currency_status
+
+
+	#return render("dummy3.html",{"stocks_dict" : stocks_dict})
 	
 
 

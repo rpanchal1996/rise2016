@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Account Information</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../static/css/simple-sidebar.css" rel="stylesheet">
+    <link href="../../static/css/account.css" rel="stylesheet">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="wrapper" >
+        <!-- style="max-width: 960px; margin: 0 auto;" -->
+        
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Treasury
+                    </a>
+                </li>
+                <li>
+                    <a href="#menu-toggle" class="toggle-button" id="menu-toggle">Toggle Menu</a>
+                </li>
+                <li>
+                    <a href="/">Dashboard</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 pageTitle">
+                        <h1>
+                            Account #56340
+                            <a href="#menu-toggle" style="float:right;" class="btn btn-primary toggle-button" id="menu-toggle">Toggle Menu</a>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="account-chart">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2> Currency Trends and Predictions </h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="currency-chart" class="currency-chart">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../static/js/jquery.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/accounts.js"> </script>
+    <script>
+    $(".toggle-button").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    var jsondata = {"42": 1.1226, "48": 1.1226, "43": 1.1247, "49": 1.1165, "24": 1.1268, "25": 1.129, "26": 1.129, "27": 1.129, "20": 1.1326, "21": 1.1326, "22": 1.1306, "23": 1.1339, "46": 1.1226, "47": 1.1226, "44": 1.1218, "45": 1.1254, "28": 1.129, "29": 1.117, "40": 1.1268, "41": 1.1268, "1": 1.1164, "3": 1.12, "2": 1.1193, "5": 1.1156, "4": 1.1136, "7": 1.1156, "6": 1.1156, "9": 1.1078, "8": 1.1087, "39": 1.1268, "38": 1.1296, "11": 1.1153, "10": 1.1184, "13": 1.1158, "12": 1.1158, "15": 1.118, "14": 1.1158, "17": 1.1276, "16": 1.1295, "19": 1.1326, "18": 1.1321, "31": 1.1146, "30": 1.1168, "37": 1.1237, "36": 1.1159, "35": 1.1156, "34": 1.1193, "33": 1.1193, "32": 1.1193};
+
+    var preddata = {"56": 1.1506642337224426, "54": 1.1405406391705279, "42": 1.1203825826272613, "48": 1.1237961557453189, "43": 1.1203649184744062, "49": 1.1254310091525748, "52": 1.1329355593449257, "53": 1.1364475064540909, "24": 1.1269803985343634, "25": 1.1270839986255439, "26": 1.1270875325794707, "27": 1.1269932616060589, "20": 1.1255773290679545, "21": 1.1260711106820704, "22": 1.1264721288818877, "23": 1.1267761058522752, "46": 1.1215848281581091, "47": 1.1225268373630541, "44": 1.1205380076708022, "45": 1.1209335370390745, "28": 1.1268050816714859, "29": 1.1265285234981894, "40": 1.1208715974715351, "41": 1.1205609480630048, "1": 1.1162181658614101, "3": 1.1150558361900793, "2": 1.1154874416442921, "5": 1.114950263590222, "4": 1.1148880113146695, "7": 1.1156383596641597, "6": 1.1152105243451578, "9": 1.1168831921143998, "8": 1.1162049703881716, "51": 1.1299583982140529, "39": 1.1212877482990125, "38": 1.1217842527478588, "59": 1.1714625068143809, "58": 1.1637102351577375, "11": 1.1184739847436362, "10": 1.1176474951963116, "13": 1.1202261174547488, "12": 1.1193404006223644, "15": 1.1219811262508033, "14": 1.1211121446193031, "17": 1.1236067032350519, "16": 1.1228173412402864, "19": 1.1249966966109328, "18": 1.1243367606386598, "31": 1.1257405691064903, "30": 1.1261707525648705, "37": 1.1223375977767573, "36": 1.1229259051006535, "35": 1.1235289311907539, "34": 1.1241280672745271, "33": 1.1247063393357029, "55": 1.1452629918794777, "32": 1.1252484081142728, "57": 1.1567956685971872, "50": 1.1274712581887547};
+
+    function createData(a,e){var t=[];t.push({name:"Actual Currency",data:[]}),t.push({name:"Predicted Currency",data:[]});var r=0;for(var i in a)if(r+=1,t[0].data.push(a[i]),45==r)break;r=0;for(i in e)if(r+=1,t[1].data.push(e[i]),51==r)break;return t}$(function(){for(var a=[],e=(new Date("Aug 1, 2015"),0);50>e;e++)a.push(e);$("#currency-chart").highcharts({title:{text:"Currency Prediction Curve",x:-20},xAxis:{categories:a},yAxis:{title:{text:"Base Currency EUR"},plotLines:[{value:0,width:1,color:"#808080"}]},tooltip:{valueSuffix:"$"},legend:{layout:"vertical",align:"right",verticalAlign:"middle",borderWidth:0},series:createData(jsondata,preddata)})});
+
+    createData(jsondata,preddata);
+
+    </script>
+</body>
+</html>
