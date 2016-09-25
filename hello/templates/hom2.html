@@ -35,9 +35,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="#menu-toggle" class="toggle-button" id="menu-toggle">Toggle Menu</a>
                 </li>
-                <!--<li>
+                <li>
+                    <a href="/">Dashboard</a>
+                </li>
+                <!-- <li>
                     <a href="#">Shortcuts</a>
                 </li>
                 <li>
@@ -53,8 +56,8 @@
                     <a href="#">Services</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>-->
-                </li>
+                    <a href="#">Contact</a>
+                </li> -->
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -62,6 +65,14 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1> 
+                            Dashboard
+                            <a href="#menu-toggle" class="btn btn-primary toggle-button" id="menu-toggle" style="float: right;">Toggle Menu</a>
+                        </h1>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
@@ -77,11 +88,6 @@
                 </div>
 
                 <div class="row" id="accountDivContainer">
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -99,7 +105,7 @@
     <script src="../static/js/workingfiddle.js"></script>
     <!-- Menu Toggle Script -->
     <script>
-    $("#menu-toggle").click(function(e) {
+    $(".toggle-button").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
@@ -114,7 +120,7 @@
           for (var i = 0; i<accountData.length; i++){
             choice = Math.floor(Math.random()*2);
 
-            $("#accountDivContainer").append(('<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 accountDiv"> <a href="/' + accountData[i].name +"/" + accountData[i].currency +'" class="accountWrap ' + accountData[i].status.toLowerCase() + '"> <div class="accountName"> Account #'+ accountData[i].name+'<i class="ion '+ (accountData[i].status.toLowerCase()=='danger'? icon[0]: icon[1]) + '"></i> </div> <div class="balance"> <div class="accountDetailName"> Current Balance </div> <div class="balanceValue accountValue">'+ accountData[i].currentBalance + ' ' +accountData[i].currency + '</div> </div> <div class="min-balance"> <div class="accountDetailName"> Minimum Balance </div> <div class="minbalanceValue accountValue"> '+ accountData[i].minimumBalance + ' ' + accountData[i].currency + ' </div> </div> <div class="account-status"> <div class="accountDetailName"> Status </div> <div class="healthValue"> '+ accountData[i].status +'</div> </div> </a> </div>'));
+            $("#accountDivContainer").append(('<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 accountDiv"> <a href="#" class="accountWrap ' + accountData[i].status.toLowerCase() + '"> <div class="accountName"> Account #'+ accountData[i].name+'<i class="ion '+ (accountData[i].status.toLowerCase()=='danger'? icon[0]: icon[1]) + '"></i> </div> <div class="balance"> <div class="accountDetailName"> Current Balance </div> <div class="balanceValue accountValue">'+ accountData[i].currentBalance + ' ' +accountData[i].currency + '</div> </div> <div class="min-balance"> <div class="accountDetailName"> Minimum Balance </div> <div class="minbalanceValue accountValue"> '+ accountData[i].minimumBalance + ' ' + accountData[i].currency + ' </div> </div> <div class="account-status"> <div class="accountDetailName"> Status </div> <div class="healthValue"> '+ accountData[i].status +'</div> </div> </a> </div>'));
           }
         }
 

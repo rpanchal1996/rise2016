@@ -110,6 +110,7 @@ def after_login(request):
 	dest_acc = account_options['dest_acc']
 	best_account_val = account_options['best_account_val']
 	to_transfer = account_options['to_transfer']
+	worst_currency = curr_status['worst_currency'] 
 
 	if 1 == dest_acc:
 		dict_obj1["status"] = "Danger"
@@ -119,6 +120,15 @@ def after_login(request):
 		dict_obj3["status"] = "Danger"
 	if 4 == dest_acc:
 		dict_obj4["status"] = "Danger"
+
+	if "usd" == worst_currency:
+		dict_obj1["status"] = "Moderate"
+	if "inr" == worst_currency:
+		dict_obj2["status"] = "Moderate"
+	if "eur" == worst_currency:
+		dict_obj3["status"] = "Moderate"
+	if "gbp" == worst_currency:
+		dict_obj4["status"] = "Moderate"
 	return render(request, "home.html", {"obj" : final_obj, "dict_obj1" : dict_obj1, "dict_obj2" : dict_obj2, 
 		"dict_obj3" : dict_obj3, "dict_obj4" : dict_obj4 })
 
@@ -159,6 +169,8 @@ def register(request):
 	return render(request,'register.html')
 
 def user_login(request):
+	if request.user.is_authenticated():
+		return HttpResponseRedirect('/home')
 	if request.method == 'POST':
 		username = request.POST.get('username')
 		password = request.POST.get('password')
