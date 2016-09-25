@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,20 +9,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>Account Information</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="../static/css/simple-sidebar.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="../static/css/home.css" rel="stylesheet">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 
 </head>
 
@@ -35,8 +30,8 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
+                    <a href="#" class="nav-brand-name">
+                        Treasury
                     </a>
                 </li>
                 <li>
@@ -72,11 +67,19 @@
                         <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
-                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                        <h1>
+                            Your Accounts
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="row" id="accountDivContainer">
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                     </div>
                 </div>
@@ -93,7 +96,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="../static/js/bootstrap.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="../static/js/workingfiddle.js"></script>
+    <script src="../static/js/workingfiddle.js"></script>
     <!-- Menu Toggle Script -->
     <script>
     $("#menu-toggle").click(function(e) {
@@ -101,7 +104,52 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
+    <script>
 
+        function generateAccountDivs(accountData){
+  
+          var Status = ['danger', 'healthy'];
+          var icon = ['ion-alert', 'ion-checkmark'];
+
+          for (var i = 0; i<accountData.length; i++){
+            choice = Math.floor(Math.random()*2);
+
+            $("#accountDivContainer").append(('<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 accountDiv"> <a href="' + accountData[i].name +'" class="accountWrap ' + accountData[i].status.toLowerCase() + '"> <div class="accountName"> Account #'+ accountData[i].name+'<i class="ion '+ (accountData[i].status.toLowerCase()=='danger'? icon[0]: icon[1]) + '"></i> </div> <div class="balance"> <div class="accountDetailName"> Current Balance </div> <div class="balanceValue accountValue">'+ accountData[i].currentBalance + ' ' +accountData[i].currency + '</div> </div> <div class="min-balance"> <div class="accountDetailName"> Minimum Balance </div> <div class="minbalanceValue accountValue"> '+ accountData[i].minimumBalance + ' ' + accountData[i].currency + ' </div> </div> <div class="account-status"> <div class="accountDetailName"> Status </div> <div class="healthValue"> '+ accountData[i].status +'</div> </div> </a> </div>'));
+          }
+        }
+
+        generateAccountDivs(
+            [
+                {
+                    name: "{{dict_obj1.account}}",
+                    status: "{{dict_obj1.status}}",
+                    currentBalance: {{dict_obj1.current}},
+                    minimumBalance: {{dict_obj1.minbal}},
+                    currency: "{{dict_obj1.currency}}"
+                },
+                {
+                    name: "{{dict_obj2.account}}",
+                    status: "{{dict_obj2.status}}",
+                    currentBalance: {{dict_obj2.current}},
+                    minimumBalance: {{dict_obj2.minbal}},
+                    currency: "{{dict_obj2.currency}}"
+                },
+                {
+                    name: "{{dict_obj3.account}}",
+                    status: "{{dict_obj3.status}}",
+                    currentBalance: {{dict_obj3.current}},
+                    minimumBalance: {{dict_obj3.minbal}},
+                    currency: "{{dict_obj3.currency}}"
+                },
+                {
+                    name: "{{dict_obj4.account}}",
+                    status: "{{dict_obj4.status}}",
+                    currentBalance: {{dict_obj4.current}},
+                    minimumBalance: {{dict_obj4.minbal}},
+                    currency: "{{dict_obj4.currency}}"
+                }
+            ]
+        );
+    </script>
 </body>
-
 </html>

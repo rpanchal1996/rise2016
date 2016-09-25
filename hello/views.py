@@ -13,7 +13,7 @@ import json
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-os.chdir("/home/ssm/Desktop/avais/rise2016/hello")
+os.chdir("/home/avais/Desktop/rise/rise2016/hello")
 import random
 # Create your views here.
 def index(request):
@@ -24,7 +24,88 @@ def after_login(request):
 	f = open("data/account.json","r")
 	for line in f:
 		final_obj = line
-	return render(request, "home.html", {"obj" : final_obj})
+
+	f = open("data/account1.json","r")
+	balance = 500000
+	for line in f:
+		line_json = json.loads(line)
+		for i in range(0,len(line_json)):
+			line_obj = line_json[i]
+			acc = line_obj["account1"]
+			curr = line_obj["currency"]
+			if line_obj["transaction"] == 0:
+				balance -= line_obj["amount"]
+			else:
+				balance += line_obj["amount"]
+	dict_obj1 = {
+		'account' : acc,
+		'minbal' : 600000,
+		'current' : balance,
+		'currency' : curr,
+		'status' : 'Healthy'
+	}
+
+	f = open("data/account2.json","r")
+	balance = 500000
+	for line in f:
+		line_json = json.loads(line)
+		for i in range(0,len(line_json)):
+			line_obj = line_json[i]
+			acc = line_obj["account1"]
+			curr = line_obj["currency"]
+			if line_obj["transaction"] == 0:
+				balance -= line_obj["amount"]
+			else:
+				balance += line_obj["amount"]
+	dict_obj2 = {
+		'account' : acc,
+		'minbal' : 600000,
+		'current' : balance,
+		'currency' : curr,
+		'status' : 'Danger'
+	}
+
+	f = open("data/account3.json","r")
+	balance = 500000
+	for line in f:
+		line_json = json.loads(line)
+		for i in range(0,len(line_json)):
+			line_obj = line_json[i]
+			acc = line_obj["account1"]
+			curr = line_obj["currency"]
+			if line_obj["transaction"] == 0:
+				balance -= line_obj["amount"]
+			else:
+				balance += line_obj["amount"]
+	dict_obj3 = {
+		'account' : acc,
+		'minbal' : 600000,
+		'current' : balance,
+		'currency' : curr,
+		'status' : 'healthy'
+	}
+
+	f = open("data/account4.json","r")
+	balance = 500000
+	for line in f:
+		line_json = json.loads(line)
+		for i in range(0,len(line_json)):
+			line_obj = line_json[i]
+			acc = line_obj["account1"]
+			curr = line_obj["currency"]
+			if line_obj["transaction"] == 0:
+				balance -= line_obj["amount"]
+			else:
+				balance += line_obj["amount"]
+	dict_obj4 = {
+		'account' : acc,
+		'minbal' : 600000,
+		'current' : balance,
+		'currency' : curr,
+		'status' : 'healthy'
+	}
+	return render(request, "home.html", {"obj" : final_obj, "dict_obj1" : dict_obj1, "dict_obj2" : dict_obj2, 
+		"dict_obj3" : dict_obj3, "dict_obj4" : dict_obj4 })
 
 def analyse(fromAccount, toAccount, amount, balanceFrom, balanceTo):
 	balanceFrom -= amount
