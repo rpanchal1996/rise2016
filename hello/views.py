@@ -546,6 +546,3 @@ def currency_anaylysis():
 		chfpred[str(i)] = chfp(i)
 
 	return currency_status
-
-
-	#return render("dummy3.html",{"stocks_dict" : stocks_dict})

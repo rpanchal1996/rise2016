@@ -19,4 +19,8 @@ urlpatterns = [
     url(r'^test/$', hello.views.analyse, name='balance_options'),
     url(r'^sms/$', hello.views.sms, name='sms'),
     url(r'^(\d+)/(\w+)/$', hello.views.analyse, name = 'balance_options')
+<<<<<<< HEAD
 ]
+=======
+]
+>>>>>>> 00cfdf0f5a2b76e8e32c62290b985a56a079cca7
