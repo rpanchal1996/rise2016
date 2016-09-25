@@ -18,9 +18,9 @@ urlpatterns = [
     url(r'^invalidlogin/$', hello.views.invalidLogin, name='invalidLogin'),
     url(r'^test/$', hello.views.analyse, name='balance_options'),
     url(r'^sms/$', hello.views.sms, name='sms'),
-    url(r'^(\d+)/(\w+)/$', hello.views.analyse, name = 'balance_options')
-<<<<<<< HEAD
+    url(r'^(\d+)/(\w+)/$', hello.views.analyse, name = 'balance_options'),
+    url(r'^portfolio/$', hello.views.portfolio, name='portfolio'),
 ]
-=======
-]
->>>>>>> 00cfdf0f5a2b76e8e32c62290b985a56a079cca7
+
+
+

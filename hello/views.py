@@ -13,7 +13,7 @@ import json
 import numpy as np
 #import matplotlib.pyplot as plt
 import os
-os.chdir("/home/avais/Desktop/rise/rise2016/hello")
+os.chdir("/home/rudresh/Desktop/Rise Hackathon/webtechShitToPush/python-getting-started/hello")
 
 import random
 # Create your views here.
@@ -546,3 +546,18 @@ def currency_anaylysis():
 		chfpred[str(i)] = chfp(i)
 
 	return currency_status
+
+def portfolio(request):
+	json1_file = open('data/portfolio.json')
+	json1_str = json1_file.read()
+	json1_data = json.loads(json1_str)
+	for x in json1_data:
+		if(x['risk']>1):
+			x['type'] = 'Risky'
+			x['val'] = True
+		else:
+			x['type'] = 'Not Risky'
+			x['val'] = False
+
+	#print(type(json1_data))
+	return render(request,'portfolio.html',{'entries':json1_data})

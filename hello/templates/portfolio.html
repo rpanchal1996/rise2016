@@ -23,7 +23,27 @@
 </head>
 
 <body>
-<table class="table table-inverse">
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#" class="nav-brand-name">
+                    Treasury
+                </a>
+            </li>
+            <li>
+                <a href="#menu-toggle" class="toggle-button" id="menu-toggle">Toggle Menu</a>
+            </li>
+            <li>
+                <a href="/">Dashboard</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <table class="table table-inverse">
   <thead>
     <tr>
       <th>Name</th>
@@ -51,6 +71,7 @@
     {% endfor %}
     </tbody>
 </table>
+        </div>
+      </div>
 </body>
 </html>
-
