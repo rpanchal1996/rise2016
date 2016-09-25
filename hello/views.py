@@ -40,7 +40,7 @@ def after_login(request):
 				balance += line_obj["amount"]
 	dict_obj1 = {
 		'account' : acc,
-		'minbal' : 600000,
+		'minbal' : 300000,
 		'current' : balance,
 		'currency' : curr,
 		'status' : 'Healthy'
@@ -60,7 +60,7 @@ def after_login(request):
 				balance += line_obj["amount"]
 	dict_obj2 = {
 		'account' : acc,
-		'minbal' : 600000,
+		'minbal' : 300000,
 		'current' : balance,
 		'currency' : curr,
 		'status' : 'Healthy'
