@@ -22,12 +22,17 @@ This Web-App won the Yodlee-Envestnet partner prize.
 
 ## Screenshots
 
+### Homepage with balance trends
+
 ![Screenshot](screenshots/hack1.png)
+
+### Currency Trend Analysis and suggestions
 
 ![Screenshot](screenshots/hack2.png)
 
+### Balance predictions and spending analysis
 ![Screenshot](screenshots/hack3.png)
 
-![Screenshot](screenshots/hack4.png)
+### Portfolio Analysis
 
-![Screenshot](screenshots/hack5.png)
+![Screenshot](screenshots/hack4.png)
