@@ -12,8 +12,8 @@ import requests
 import json
 import numpy as np
 #import matplotlib.pyplot as plt
-#import os
-#os.chdir("/home/rudresh/Desktop/Rise Hackathon/webtechShitToPush/python-getting-started/hello")
+import os
+os.chdir("/home/rudresh/Desktop/Rise Hackathon/webtechShitToPush/python-getting-started/hello")
 
 import random
 # Create your views here.
